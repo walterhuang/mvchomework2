@@ -35,6 +35,20 @@ namespace MvcHomework2.Models
 			return repository;
 		}		
 
+		public static V_CustomerDetailSumRepository GetV_CustomerDetailSumRepository()
+		{
+			var repository = new V_CustomerDetailSumRepository();
+			repository.UnitOfWork = GetUnitOfWork();
+			return repository;
+		}
+
+		public static V_CustomerDetailSumRepository GetV_CustomerDetailSumRepository(IUnitOfWork unitOfWork)
+		{
+			var repository = new V_CustomerDetailSumRepository();
+			repository.UnitOfWork = unitOfWork;
+			return repository;
+		}		
+
 		public static 客戶銀行資訊Repository Get客戶銀行資訊Repository()
 		{
 			var repository = new 客戶銀行資訊Repository();

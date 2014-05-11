@@ -15,6 +15,11 @@ namespace MvcHomework2.Models
 		IQueryable<T> Where(Expression<Func<T, bool>> expression);
 		void Add(T entity);
 		void Delete(T entity);
+		
+		// add by walter
+		T Find(params object[] keys);
+		void Update(T entity);
+		IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties);
 	}
 }
 

@@ -12,18 +12,11 @@ namespace MvcHomework2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact
+    public partial class V_CustomerDetailSum
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public string Title { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Mobile { get; set; }
-        public string Phone { get; set; }
-        public System.DateTime CreateDate { get; set; }
-        public bool IsDelete { get; set; }
-    
-        public virtual Customer Customer { get; set; }
+        public string CustomerName { get; set; }
+        public Nullable<int> NumOfBanks { get; set; }
+        public Nullable<int> NumOfContacts { get; set; }
     }
 }

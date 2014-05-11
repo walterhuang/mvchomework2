@@ -22,7 +22,9 @@ namespace MvcHomework2.Models
 			}
 		}
 
-        public T Find(params object[] keys)
+		#region added by walter
+
+		public T Find(params object[] keys)
         {
             return ObjectSet.Find(keys);
         }
@@ -40,6 +42,8 @@ namespace MvcHomework2.Models
             return query;
         }
 
+		#endregion
+
 		public virtual IQueryable<T> All()
 		{
 			return ObjectSet.AsQueryable();
@@ -49,8 +53,6 @@ namespace MvcHomework2.Models
 		{
 			return ObjectSet.Where(expression);
 		}
-
-        
 
 		public void Add(T entity)
 		{

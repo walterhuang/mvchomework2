@@ -29,6 +29,11 @@ namespace <#= code.VsNamespaceSuggestion() #>
 		IQueryable<T> Where(Expression<Func<T, bool>> expression);
 		void Add(T entity);
 		void Delete(T entity);
+		
+		// add by walter
+		T Find(params object[] keys);
+		void Update(T entity);
+		IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties);
 	}
 }<#
 
@@ -123,6 +128,28 @@ namespace <#= code.VsNamespaceSuggestion() #>
 				return _objectset;
 			}
 		}
+
+		#region added by walter
+
+		public T Find(params object[] keys)
+        {
+            return ObjectSet.Find(keys);
+        }
+
+        public void Update(T entity)
+        {
+            var entry = UnitOfWork.Context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public virtual IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = ObjectSet;
+            foreach (var property in includeProperties)
+                query = query.Include(property);
+            return query;
+        }
+
+		#endregion
 
 		public virtual IQueryable<T> All()
 		{

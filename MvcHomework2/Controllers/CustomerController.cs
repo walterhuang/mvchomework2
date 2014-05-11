@@ -13,10 +13,11 @@ namespace MvcHomework2.Controllers
     public class CustomerController : Controller
     {
         //private CustomerEntities db = new CustomerEntities();
-        private CustomerRepository repo = new CustomerRepository();
+        private ICustomerRepository repo;
+
         public CustomerController()
         {
-            repo.UnitOfWork = new EFUnitOfWork();
+            repo = RepositoryHelper.GetCustomerRepository();
         }
 
         // GET: /Customer/

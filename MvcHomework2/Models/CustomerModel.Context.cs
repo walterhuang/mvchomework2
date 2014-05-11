@@ -28,5 +28,6 @@ namespace MvcHomework2.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<客戶銀行資訊> 客戶銀行資訊 { get; set; }
+        public virtual DbSet<V_CustomerDetailSum> V_CustomerDetailSum { get; set; }
     }
 }

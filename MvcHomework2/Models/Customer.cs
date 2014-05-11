@@ -28,6 +28,7 @@ namespace MvcHomework2.Models
         public System.DateTime DateCreated { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+        public bool IsDelete { get; set; }
     
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual ICollection<客戶銀行資訊> 客戶銀行資訊 { get; set; }

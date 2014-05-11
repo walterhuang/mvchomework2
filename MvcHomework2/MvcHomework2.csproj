@@ -178,6 +178,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\客戶銀行資訊Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,6 +217,7 @@
     <Compile Include="Models\CustomerRepository.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerVM.cs" />
     <Compile Include="Models\EFGeneratePartialClass.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -240,6 +242,15 @@
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RepositoryIQueryableExtensions.cs">
+      <DependentUpon>IRepository.EF6.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_CustomerDetailSum.cs">
+      <DependentUpon>CustomerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_CustomerDetailSum.Partial.cs">
+      <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\V_CustomerDetailSumRepository.cs">
       <DependentUpon>IRepository.EF6.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\客戶銀行資訊.cs">
@@ -304,6 +315,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="V_CustomerDetailSubtotal.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -344,6 +356,7 @@
     <Content Include="Views\客戶銀行資訊\Details.cshtml" />
     <Content Include="Views\客戶銀行資訊\Edit.cshtml" />
     <Content Include="Views\客戶銀行資訊\Index.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

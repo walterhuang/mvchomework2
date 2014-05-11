@@ -13,13 +13,13 @@ namespace MvcHomework2.Controllers
     public class ContactController : Controller
     {
         //private CustomerEntities db = new CustomerEntities();
-        private ContactRepository repo = new ContactRepository();
-        private CustomerRepository customerRepo = new CustomerRepository();
+        private IContactRepository repo;
+        private ICustomerRepository customerRepo;
 
         public ContactController()
         {
-            repo.UnitOfWork = new EFUnitOfWork();
-            customerRepo.UnitOfWork = repo.UnitOfWork;
+            repo = RepositoryHelper.GetContactRepository();
+            customerRepo = RepositoryHelper.GetCustomerRepository(repo.UnitOfWork);
         }
 
         // GET: /Contact/

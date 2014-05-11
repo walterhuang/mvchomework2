@@ -13,13 +13,13 @@ namespace MvcHomework2.Controllers
     public class 客戶銀行資訊Controller : Controller
     {
         //private CustomerEntities db = new CustomerEntities();
-        private 客戶銀行資訊Repository repo = new 客戶銀行資訊Repository();
-        private CustomerRepository customerRepo = new CustomerRepository();
+        private I客戶銀行資訊Repository repo;
+        private ICustomerRepository customerRepo;
 
         public 客戶銀行資訊Controller()
         {
-            repo.UnitOfWork = new EFUnitOfWork();
-            customerRepo.UnitOfWork = repo.UnitOfWork;
+            repo = RepositoryHelper.Get客戶銀行資訊Repository();
+            customerRepo = RepositoryHelper.GetCustomerRepository(repo.UnitOfWork);
         }
 
         // GET: /客戶銀行資訊/

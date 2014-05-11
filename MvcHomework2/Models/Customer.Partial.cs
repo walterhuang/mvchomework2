@@ -25,6 +25,7 @@ namespace MvcHomework2.Models
         public string Address { get; set; }
         
         [StringLength(250, ErrorMessage="欄位長度不得大於 250 個字元")]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         public System.DateTime DateCreated { get; set; }
