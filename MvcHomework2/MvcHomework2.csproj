@@ -200,6 +200,7 @@
     <Compile Include="Models\Customer.Partial.cs">
       <DependentUpon>EFGeneratePartialClass.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerBatchUpdateVM.cs" />
     <Compile Include="Models\CustomerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

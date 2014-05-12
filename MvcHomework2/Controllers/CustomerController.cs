@@ -23,8 +23,32 @@ namespace MvcHomework2.Controllers
         // GET: /Customer/
         public ActionResult Index()
         {
+
             return View(repo.All()); //db.Customers.ToList());
 
+        }
+
+        [HttpPost]
+        public ActionResult Index(List<CustomerBatchUpdateVM> form) //int[] id, string[] 統一編號)
+        {
+            if (form != null) //if (id != null)
+            {
+                //for (int i = 0; i < id.Length; i++)
+                //{
+                //    var data = repo.Find(id[i]);
+                //    data.統一編號 = 統一編號[i];
+                //}
+
+                foreach (var item in form)
+                {
+                    var data = repo.Find(item.Id);
+                    data.統一編號 = item.統一編號;
+                    data.Phone = item.Phone;
+                }
+
+                repo.UnitOfWork.Commit();
+            }
+            return RedirectToAction("Index");
         }
 
         // GET: /Customer/Details/5
@@ -79,7 +103,7 @@ namespace MvcHomework2.Controllers
             {
                 return HttpNotFound();
             }
-            
+
             ViewData.Model = customer;
             ViewBag.Contacts = customer.Contacts.ToList();
 
@@ -137,6 +161,7 @@ namespace MvcHomework2.Controllers
             if (disposing)
             {
                 //db.Dispose();
+                repo.UnitOfWork.Context.Dispose();
             }
             base.Dispose(disposing);
         }
