@@ -20,8 +20,8 @@ namespace MvcHomework2.Controllers
         protected override void HandleUnknownAction(string actionName)
         {
             if (this.ControllerContext.HttpContext.Request.HttpMethod.ToUpper() == "GET")
-                //this.View(actionName).ExecuteResult(this.ControllerContext);
-                 Redirect("/");
+                this.View(actionName).ExecuteResult(this.ControllerContext);
+                //Response.Redirect("/");
             else
                 base.HandleUnknownAction(actionName);
         }

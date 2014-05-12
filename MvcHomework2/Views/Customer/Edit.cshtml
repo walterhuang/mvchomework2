@@ -81,6 +81,15 @@
     </div>
 }
 
+@{ var contacts = ViewBag.Contacts as List<MvcHomework2.Models.Contact>; }
+
+<ul>
+    @foreach (var item in contacts)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>

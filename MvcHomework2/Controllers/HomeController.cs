@@ -8,10 +8,18 @@ namespace MvcHomework2.Controllers
 {
     public class HomeController : BaseController
     {
+        public ActionResult JsonTest()
+        {
+            var repo = Models.RepositoryHelper.GetCustomerRepository();
+            repo.UnitOfWork.LazyLoadingEnabled = false;
+            var data = repo.All().First();
+            return Json(data);
+        }
         public ActionResult JavascriptTest()
         {
             return JavaScript("alert('ok')");
         }
+
         public ActionResult FileTest()
         {
             return File(Server.MapPath(@"~\Content\N000381297_t_06.jpg"), "image/jpeg");

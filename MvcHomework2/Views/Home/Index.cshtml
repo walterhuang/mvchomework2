@@ -11,6 +11,17 @@
 <div class="row">
     <div class="col-md-4">
         @Ajax.ActionLink("Run Javascript", "JavascriptTest", new AjaxOptions())
+
+        <input type="button" value="Get" onclick="doSomething()"/>
+        <script>
+            function doSomething()
+            {
+                $.post('/Home/JsonTest', '', function (data) {
+                    console.log(data);
+                    alert(data.Email);
+                });
+            }
+        </script>
         <h2>Getting started</h2>
         <p>
             ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that

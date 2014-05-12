@@ -79,7 +79,11 @@ namespace MvcHomework2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            
+            ViewData.Model = customer;
+            ViewBag.Contacts = customer.Contacts.ToList();
+
+            return View();
         }
 
         // POST: /Customer/Edit/5
