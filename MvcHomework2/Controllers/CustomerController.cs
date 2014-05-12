@@ -21,9 +21,10 @@ namespace MvcHomework2.Controllers
         }
 
         // GET: /Customer/
+        [HandleError(ExceptionType=typeof(ArgumentException), View="Error2")]
         public ActionResult Index()
         {
-
+            throw new ArgumentException("system error");
             return View(repo.All()); //db.Customers.ToList());
 
         }
@@ -115,17 +116,21 @@ namespace MvcHomework2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,統一編號,Address,Email,DateCreated,Phone,Fax")] Customer customer)
+        public ActionResult Edit(CustomerUpdateVM customerVM) //[Bind(Include = "Id,Name,統一編號,Address,Email,DateCreated,Phone,Fax")] Customer customer)
         {
             if (ModelState.IsValid)
             {
                 //db.Entry(customer).State = EntityState.Modified;
                 //db.SaveChanges();
-                repo.Update(customer);
+                //repo.Update(customer);
+                
+                var data = repo.Find(customerVM.Id);
+                AutoMapper.Mapper.DynamicMap<CustomerUpdateVM, Customer>(customerVM, data);
+
                 repo.UnitOfWork.Commit();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(customerVM);
         }
 
         // GET: /Customer/Delete/5
