@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MvcHomework2.Controllers
 {
-    public class ReportController : Controller
+    public class ReportController : BaseController
     {
         //
         // GET: /Report/

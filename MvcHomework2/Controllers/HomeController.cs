@@ -6,8 +6,17 @@ using System.Web.Mvc;
 
 namespace MvcHomework2.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public ActionResult JavascriptTest()
+        {
+            return JavaScript("alert('ok')");
+        }
+        public ActionResult FileTest()
+        {
+            return File(Server.MapPath(@"~\Content\N000381297_t_06.jpg"), "image/jpeg");
+        }
+
         public ActionResult Index()
         {
             return View();

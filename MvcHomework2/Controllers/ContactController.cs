@@ -10,7 +10,7 @@ using MvcHomework2.Models;
 
 namespace MvcHomework2.Controllers
 {
-    public class ContactController : Controller
+    public class ContactController : BaseController
     {
         //private CustomerEntities db = new CustomerEntities();
         private IContactRepository repo;

@@ -10,7 +10,7 @@ using MvcHomework2.Models;
 
 namespace MvcHomework2.Controllers
 {
-    public class 客戶銀行資訊Controller : Controller
+    public class 客戶銀行資訊Controller: BaseController
     {
         //private CustomerEntities db = new CustomerEntities();
         private I客戶銀行資訊Repository repo;
